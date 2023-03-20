@@ -14,7 +14,6 @@ def get_config_file_path():
     """ get the config file path """
     return join(get_config_dir(), 'config.yml')
 
-
 def get_config():
     """ get the configuration from config.yml, create it if not there """
     data_dir = get_data_dir()

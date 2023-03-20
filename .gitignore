@@ -9,4 +9,5 @@ tmp/
 tmp/
 ldraw/library/
 dist/
+build/
 Pipfile.lock

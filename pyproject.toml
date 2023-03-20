@@ -1,0 +1,52 @@
+[project]
+name = "pyldraw"
+description="A package for working with LDraw format files."
+dynamic = ["version"]
+authors = [
+    { name = "David Boddie", email = "david@boddie.org.uk" },
+    { name = "Matthieu Berthomé", email = "rienafairefr@gmail.com" }
+]
+license = {file = "LICENSE"}
+readme = "README.rst"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python",
+    "Intended Audience :: Testers",
+    "Natural Language :: English",
+    "License :: OSI Approved :: MIT License"
+]
+dependencies = [
+    "platformdirs>=3.1.1",
+    "numpy>=1.24.2",
+    "pymklist>=1.1.0",
+    "pystache>=0.6.0",
+    "attrdict3>=2.0.2",
+    "progress>=1.6",
+    "PyYaml>=6.0",
+    "Pillow>=9.4.0",
+]
+
+[build-system]
+requires = [
+    "setuptools>=66.1.1"
+]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+"Homepage" = "https://github.com/nadegelemperiere/fll-mock/"
+"Bug Tracker" = "https://github.com/nadegelemperiere/fll-mock//issues"
+
+[project.optional-dependencies]
+dev = [
+    "robotframework>=6.0.2",
+    "openpyxl==3.1.1"
+]
+
+[tool.setuptools-git-versioning]
+enabled = true
+
+[tool.setuptools.packages]
+find = {}
+
+[tool.setuptools.package-data]
+ldraw = ["templates/*.mustache"]
