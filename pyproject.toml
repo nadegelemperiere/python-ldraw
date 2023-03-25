@@ -1,52 +1,51 @@
-[project]
+[tool.poetry]
 name = "pyldraw"
 description="A package for working with LDraw format files."
-dynamic = ["version"]
+version = "0.0.0"
 authors = [
-    { name = "David Boddie", email = "david@boddie.org.uk" },
-    { name = "Matthieu Berthomé", email = "rienafairefr@gmail.com" }
+    "David Boddie <david@boddie.org.uk>",
+    "Matthieu Berthomé<rienafairefr@gmail.com>"
 ]
-license = {file = "LICENSE"}
+license = "GPL-3.0-only"
 readme = "README.rst"
-requires-python = ">=3.11"
+packages = [{include = "ldraw"}]
+repository = "https://github.com/nadegelemperiere/python-ldraw/"
 classifiers = [
     "Programming Language :: Python",
     "Intended Audience :: Testers",
     "Natural Language :: English",
     "License :: OSI Approved :: MIT License"
 ]
-dependencies = [
-    "platformdirs>=3.1.1",
-    "numpy>=1.24.2",
-    "pymklist>=1.1.0",
-    "pystache>=0.6.0",
-    "attrdict3>=2.0.2",
-    "progress>=1.6",
-    "PyYaml>=6.0",
-    "Pillow>=9.4.0",
-]
+include = ["templates/*.mustache"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+platformdirs = "*"
+numpy = "^1.24.2"
+pymklist = "^1.1.0"
+pystache = "^0.6.0"
+attrdict3 = "^2.0.2"
+progress = "^1.6"
+PyYaml = "^6.0"
+Pillow = "^9.4.0"
+
+
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "semver"
+
+[tool.poetry.extras]
+plugin = ["poetry"]
+
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/nadegelemperiere/python-ldraw//issues"
+
 
 [build-system]
 requires = [
-    "setuptools>=66.1.1"
+    "poetry-core>=1.4.0",
+    "poetry-dynamic-versioning>=0.21.4"
 ]
-build-backend = "setuptools.build_meta"
-
-[project.urls]
-"Homepage" = "https://github.com/nadegelemperiere/fll-mock/"
-"Bug Tracker" = "https://github.com/nadegelemperiere/fll-mock//issues"
-
-[project.optional-dependencies]
-dev = [
-    "robotframework>=6.0.2",
-    "openpyxl==3.1.1"
-]
-
-[tool.setuptools-git-versioning]
-enabled = true
-
-[tool.setuptools.packages]
-find = {}
-
-[tool.setuptools.package-data]
-ldraw = ["templates/*.mustache"]
+build-backend = "poetry.core.masonry.api"
